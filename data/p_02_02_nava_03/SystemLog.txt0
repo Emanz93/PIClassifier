@@ -1,0 +1,18 @@
+#Created by Servo Tracker 4.2 
+#2015-10-19 10:57:37
+#
+11:00:40.0000 (0)	ApplicationController.cpp: 483: Connecting to CIE failed
+11:00:52.8648 (128648)	CIEDataSource.cpp: 814: Highest CIE version available:004, Set to version 2.
+11:00:52.8653 (128653)	CIEDataSource.cpp: 815: Servo-i serial number:0451120
+11:00:53.4421 (134421)	CIEDataSource.cpp: 840: Servo-i SW version:Servo-i,004,-,001;
+                       001,24.08.00                      ,-,-,00000,--------------;
+                       002,24.08.00                      ,-,-,00000,--------------;
+                       003,N/A                           ,-,-,00000,--------------;
+                       004,24.08.03                      ,-,-,00000,--------------;
+                       005,24.08.00                      ,-,-,00000,--------------;
+                       006,24.08.00                      ,-,-,00000,--------------;
+                       
+11:00:53.4430 (134430)	CIEDataSource.cpp: 841: Servo-i time:2015/10/19 09:39:00
+11:00:54.3934 (143934)	ApplicationController.cpp: 476: Connected to CIE succeeded
+11:00:56.9992 (169992)	ApplicationController.cpp: 626: Start CIE logging
+11:05:58.6471 (3186471)	ApplicationController.cpp: 668: Stop Can/Cie logging

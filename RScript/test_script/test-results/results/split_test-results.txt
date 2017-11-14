@@ -1,0 +1,249 @@
+iteration  1 
+
+Decision Tree UNBALANCED
+  0   1
+0 2   1
+1 1 166
+DT Accuracy=  0.9882353 
+SVM TN Rate =    0.6666667 
+SVM TP Rate =    0.994012 
+
+SVM UNBALANCED
+  0   1
+0 2   1
+1 1 166
+SVM Accuracy=    0.9882353 
+SVM TN Rate =    0.6666667 
+SVM TP Rate =    0.994012 
+-------------
+
+Decision Tree BALANCED
+  0   1
+0 2   3
+1 1 164
+DT Accuracy=  0.9764706 
+SVM TN Rate =    0.4 
+SVM TP Rate =    0.9939394 
+
+SVM BALANCED
+  0   1
+0 2   2
+1 1 165
+SVM Accuracy=    0.9823529 
+SVM TN Rate =    0.5 
+SVM TP Rate =    0.9939759 
+-------------
+
+iteration  2 
+
+Decision Tree UNBALANCED
+   0   1
+0 27   1
+1  6 185
+DT Accuracy=  0.9680365 
+SVM TN Rate =    0.9642857 
+SVM TP Rate =    0.9685864 
+
+SVM UNBALANCED
+   0   1
+0 22   0
+1 11 186
+SVM Accuracy=    0.9497717 
+SVM TN Rate =    1 
+SVM TP Rate =    0.9441624 
+-------------
+
+Decision Tree BALANCED
+   0   1
+0 29  27
+1  4 159
+DT Accuracy=  0.8584475 
+SVM TN Rate =    0.5178571 
+SVM TP Rate =    0.9754601 
+
+SVM BALANCED
+   0   1
+0 22   5
+1 11 181
+SVM Accuracy=    0.9269406 
+SVM TN Rate =    0.8148148 
+SVM TP Rate =    0.9427083 
+-------------
+
+iteration  3 
+
+Decision Tree UNBALANCED
+   0   1
+0 18   1
+1  5 154
+DT Accuracy=  0.9662921 
+SVM TN Rate =    0.9473684 
+SVM TP Rate =    0.9685535 
+
+SVM UNBALANCED
+   0   1
+0 13   0
+1 10 155
+SVM Accuracy=    0.9438202 
+SVM TN Rate =    1 
+SVM TP Rate =    0.9393939 
+-------------
+
+Decision Tree BALANCED
+   0   1
+0 18   1
+1  5 154
+DT Accuracy=  0.9662921 
+SVM TN Rate =    0.9473684 
+SVM TP Rate =    0.9685535 
+
+SVM BALANCED
+   0   1
+0 13   0
+1 10 155
+SVM Accuracy=    0.9438202 
+SVM TN Rate =    1 
+SVM TP Rate =    0.9393939 
+-------------
+
+iteration  4 
+
+Decision Tree UNBALANCED
+  0  1
+0 1  0
+1 8 52
+DT Accuracy=  0.8688525 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8666667 
+
+SVM UNBALANCED
+  0  1
+0 2  0
+1 7 52
+SVM Accuracy=    0.8852459 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8813559 
+-------------
+
+Decision Tree BALANCED
+  0  1
+0 6  2
+1 3 50
+DT Accuracy=  0.9180328 
+SVM TN Rate =    0.75 
+SVM TP Rate =    0.9433962 
+
+SVM BALANCED
+  0  1
+0 6  6
+1 3 46
+SVM Accuracy=    0.852459 
+SVM TN Rate =    0.5 
+SVM TP Rate =    0.9387755 
+-------------
+
+iteration  5 
+
+Decision Tree UNBALANCED
+  0  1
+0 1  0
+1 8 52
+DT Accuracy=  0.8688525 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8666667 
+
+SVM UNBALANCED
+  0  1
+0 2  0
+1 7 52
+SVM Accuracy=    0.8852459 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8813559 
+-------------
+
+Decision Tree BALANCED
+  0  1
+0 4  1
+1 5 51
+DT Accuracy=  0.9016393 
+SVM TN Rate =    0.8 
+SVM TP Rate =    0.9107143 
+
+SVM BALANCED
+  0  1
+0 6  7
+1 3 45
+SVM Accuracy=    0.8360656 
+SVM TN Rate =    0.4615385 
+SVM TP Rate =    0.9375 
+-------------
+
+iteration  6 
+
+Decision Tree UNBALANCED
+   0  1
+0 13  0
+1 14 69
+DT Accuracy=  0.8541667 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8313253 
+
+SVM UNBALANCED
+   0  1
+0  8  0
+1 19 69
+SVM Accuracy=    0.8020833 
+SVM TN Rate =    1 
+SVM TP Rate =    0.7840909 
+-------------
+
+Decision Tree BALANCED
+   0  1
+0 22 28
+1  5 41
+DT Accuracy=  0.65625 
+SVM TN Rate =    0.44 
+SVM TP Rate =    0.8913043 
+
+SVM BALANCED
+   0  1
+0 21 36
+1  6 33
+SVM Accuracy=    0.5625 
+SVM TN Rate =    0.3684211 
+SVM TP Rate =    0.8461538 
+-------------
+
+
+FINAL SUMMARY:
+
+UNBALANCED DATASET:
+	DT Average Accuracy =  0.9190726
+	DT Accuracy Variance =  0.003733507
+	DT Average TP Rate =  0.9159684
+	DT TP Rate Variance =  0.004730083
+	DT Average TN Rate =  0.9297201
+	DT TN Rate Variance =  0.01710423
+
+	SVM Mean Accuracy =  0.9090671
+	SVM Variance Accuracy =  0.004342534
+	SVM Average TP Rate =  0.9040619
+	SVM TP Rate Variance =  0.005274317
+	SVM Average TN Rate =  0.9444444
+	SVM TN Rate Variance =  0.01851852
+
+
+BALANCED DATASET:
+	DT Average Accuracy =  0.8795221
+	DT Accuracy Variance =  0.01383897
+	DT Average TP Rate =  0.947228
+	DT TP Rate Variance =  0.001581834
+	DT Average TN Rate =  0.6425376
+	DT TN Rate Variance =  0.04893112
+	
+	SVM Mean Accuracy =  0.8506897
+	SVM Variance Accuracy =  0.0230186
+	SVM Average TP Rate =  0.9330846
+	SVM TP Rate Variance =  0.002289803
+	SVM Average TN Rate =  0.6074624
+	SVM TN Rate Variance =  0.05972234

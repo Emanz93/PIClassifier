@@ -1,0 +1,130 @@
+iteration  1 
+
+Decision Tree
+  0   1
+0 2   1
+1 1 166
+DT Accuracy=  0.9882353 
+SVM TN Rate =    0.6666667 
+SVM TP Rate =    0.994012 
+
+SVM
+  0   1
+0 2   1
+1 1 166
+SVM Accuracy=    0.9882353 
+SVM TN Rate =    0.6666667 
+SVM TP Rate =    0.994012 
+-------------
+
+iteration  2 
+
+Decision Tree
+   0   1
+0 27   1
+1  6 185
+DT Accuracy=  0.9680365 
+SVM TN Rate =    0.9642857 
+SVM TP Rate =    0.9685864 
+
+SVM
+   0   1
+0 22   0
+1 11 186
+SVM Accuracy=    0.9497717 
+SVM TN Rate =    1 
+SVM TP Rate =    0.9441624 
+-------------
+
+iteration  3 
+
+Decision Tree
+   0   1
+0 18   1
+1  5 154
+DT Accuracy=  0.9662921 
+SVM TN Rate =    0.9473684 
+SVM TP Rate =    0.9685535 
+
+SVM
+   0   1
+0 13   0
+1 10 155
+SVM Accuracy=    0.9438202 
+SVM TN Rate =    1 
+SVM TP Rate =    0.9393939 
+-------------
+
+iteration  4 
+
+Decision Tree
+  0  1
+0 1  0
+1 8 52
+DT Accuracy=  0.8688525 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8666667 
+
+SVM
+  0  1
+0 2  0
+1 7 52
+SVM Accuracy=    0.8852459 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8813559 
+-------------
+
+iteration  5 
+
+Decision Tree
+  0  1
+0 1  0
+1 8 52
+DT Accuracy=  0.8688525 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8666667 
+
+SVM
+  0  1
+0 2  0
+1 7 52
+SVM Accuracy=    0.8852459 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8813559 
+-------------
+
+iteration  6 
+
+Decision Tree
+   0  1
+0 13  0
+1 14 69
+DT Accuracy=  0.8541667 
+SVM TN Rate =    1 
+SVM TP Rate =    0.8313253 
+
+SVM
+   0  1
+0  8  0
+1 19 69
+SVM Accuracy=    0.8020833 
+SVM TN Rate =    1 
+SVM TP Rate =    0.7840909 
+-------------
+
+
+FINAL RESULTS
+
+DT Average Accuracy =  0.9190726
+DT Accuracy Variance = 0.003733507
+DT Average TP Rate = 0.9159684
+DT TP Rate Variance = 0.004730083
+DT Average TN Rate = 0.9297201
+DT TN Rate Variance = 0.01710423
+
+SVM Mean Accuracy =  0.9090671
+SVM Variance Accuracy = 0.004342534
+SVM Average TP Rate = 0.9040619
+SVM TP Rate Variance = 0.005274317
+SVM Average TN Rate = 0.9444444
+SVM TN Rate Variance = 0.01851852

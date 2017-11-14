@@ -1,0 +1,192 @@
+iteration  1 
+Decision Tree
+   0  1
+0 45  8
+1  6 41
+DT Accuracy=  0.86 
+DT TN Rate =    0.8490566 
+DT TP Rate =    0.8723404 
+
+SVM
+   0  1
+0 50 15
+1  1 34
+SVM Accuracy=    0.84 
+SVM TN Rate =    0.7692308 
+SVM TP Rate =    0.9714286 
+-------------
+
+iteration  2 
+Decision Tree
+   0  1
+0 46  5
+1  6 43
+DT Accuracy=  0.89 
+DT TN Rate =    0.9019608 
+DT TP Rate =    0.877551 
+
+SVM
+   0  1
+0 52 11
+1  0 37
+SVM Accuracy=    0.89 
+SVM TN Rate =    0.8253968 
+SVM TP Rate =    1 
+-------------
+
+iteration  3 
+Decision Tree
+   0  1
+0 49  2
+1  4 45
+DT Accuracy=  0.94 
+DT TN Rate =    0.9607843 
+DT TP Rate =    0.9183673 
+
+SVM
+   0  1
+0 53  8
+1  0 39
+SVM Accuracy=    0.92 
+SVM TN Rate =    0.8688525 
+SVM TP Rate =    1 
+-------------
+
+iteration  4 
+Decision Tree
+   0  1
+0 43 13
+1  2 42
+DT Accuracy=  0.85 
+DT TN Rate =    0.7678571 
+DT TP Rate =    0.9545455 
+
+SVM
+   0  1
+0 43 14
+1  2 41
+SVM Accuracy=    0.84 
+SVM TN Rate =    0.754386 
+SVM TP Rate =    0.9534884 
+-------------
+
+iteration  5 
+Decision Tree
+   0  1
+0 50  8
+1  1 41
+DT Accuracy=  0.91 
+DT TN Rate =    0.862069 
+DT TP Rate =    0.9761905 
+
+SVM
+   0  1
+0 50  7
+1  1 42
+SVM Accuracy=    0.92 
+SVM TN Rate =    0.877193 
+SVM TP Rate =    0.9767442 
+-------------
+
+iteration  6 
+Decision Tree
+   0  1
+0 51  7
+1  4 38
+DT Accuracy=  0.89 
+DT TN Rate =    0.8793103 
+DT TP Rate =    0.9047619 
+
+SVM
+   0  1
+0 55 11
+1  0 34
+SVM Accuracy=    0.89 
+SVM TN Rate =    0.8333333 
+SVM TP Rate =    1 
+-------------
+
+iteration  7 
+Decision Tree
+   0  1
+0 38  4
+1  5 53
+DT Accuracy=  0.91 
+DT TN Rate =    0.9047619 
+DT TP Rate =    0.9137931 
+
+SVM
+   0  1
+0 42  8
+1  1 49
+SVM Accuracy=    0.91 
+SVM TN Rate =    0.84 
+SVM TP Rate =    0.98 
+-------------
+
+iteration  8 
+Decision Tree
+   0  1
+0 39  3
+1  4 54
+DT Accuracy=  0.93 
+DT TN Rate =    0.9285714 
+DT TP Rate =    0.9310345 
+
+SVM
+   0  1
+0 37  3
+1  6 54
+SVM Accuracy=    0.91 
+SVM TN Rate =    0.925 
+SVM TP Rate =    0.9 
+-------------
+
+iteration  9 
+Decision Tree
+   0  1
+0 49  6
+1  5 40
+DT Accuracy=  0.89 
+DT TN Rate =    0.8909091 
+DT TP Rate =    0.8888889 
+
+SVM
+   0  1
+0 53  7
+1  1 39
+SVM Accuracy=    0.92 
+SVM TN Rate =    0.8833333 
+SVM TP Rate =    0.975 
+-------------
+
+iteration  10 
+Decision Tree
+   0  1
+0 50  2
+1  3 45
+DT Accuracy=  0.95 
+DT TN Rate =    0.9615385 
+DT TP Rate =    0.9375 
+
+SVM
+   0  1
+0 52  6
+1  1 41
+SVM Accuracy=    0.93
+SVM TN Rate =    0.8965517
+SVM TP Rate =    0.9761905
+-------------
+
+
+FINAL SUMMARY
+
+DT Average Accuracy =  0.902
+DT Accuracy Variance = 0.001062222
+DT TN Rate =  0.8906819
+DT TP Rate =  0.9174973
+
+SVM Mean Accuracy =  0.897
+SVM Variance Accuracy = 0.001067778
+SVM TN Rate =  0.8473277
+SVM TP Rate =  0.9732852
