@@ -56,7 +56,6 @@ class Controller:
                 if not askyesno(title=POPUP_C_TITLE, message=POPUP_C_MESSAGE_AUTOM):
                     return False
                 self.load_new_work()
-        return True
 
     def load_previous_work(self):
         """Restart a previous work."""
@@ -90,9 +89,9 @@ class Controller:
         for file_path in self.model.servo_curve_paths:
             with open(file_path) as f:
                 if self.model.edi is None:
-                    self.model.edi = np.loadtxt(f, comments="%", usecols=(3, 4, 5, 6))
+                    self.model.edi = np.loadtxt(file_path, comments="%", usecols=(3, 4, 5, 6))
                 else:
-                    self.model.edi = np.concatenate((self.model.edi, np.loadtxt(f, comments="%", usecols=(3, 4, 5, 6))))
+                    self.model.edi = np.concatenate((self.model.edi, np.loadtxt(file_path, comments="%", usecols=(3, 4, 5, 6))))
 
     def load_volume(self):
         """Load the data from the Trend Tidal Volume File(s) and append the content of the files in
@@ -100,10 +99,10 @@ class Controller:
         for file_path in self.model.trend_tidal_volume_paths:
             with open(file_path) as f:
                 if self.model.volume is None:
-                    self.model.volume = np.round((np.loadtxt(f, comments="%", usecols=(3, 4)) / 10000000), 3)
+                    self.model.volume = np.round((np.loadtxt(file_path, comments="%", usecols=(3, 4)) / 10000000), 3)
                 else:
                     self.model.volume = np.concatenate((self.model.volume, np.round(
-                        (np.loadtxt(f, comments="%", usecols=(3, 4)) / 10000000), 3)))
+                        (np.loadtxt(file_path, comments="%", usecols=(3, 4)) / 10000000), 3)))
 
         v = np.shape(self.model.volume)
         self.model.col = v[0]
@@ -115,9 +114,9 @@ class Controller:
         for file_path in self.model.trend_rr_insp_paths:
             with open(file_path) as f:
                 if self.model.c is None:
-                    self.model.c = np.loadtxt(f, comments="%", usecols=(3, 4, 6))
+                    self.model.c = np.loadtxt(file_path, comments="%", usecols=(3, 4, 6))
                 else:
-                    self.model.c = np.concatenate((self.model.c, np.loadtxt(f, comments="%", usecols=(3, 4, 6))))
+                    self.model.c = np.concatenate((self.model.c, np.loadtxt(file_path, comments="%", usecols=(3, 4, 6))))
 
     def retrieve_all_information(self):
         """Retrieve all information from the input files."""
@@ -174,10 +173,26 @@ class Controller:
         # 1 : Ok
         # 0 : Anomaly
         # 2 : Dubious
+        if picco is None:
+            print("retrieve_all_information: picco is None.")
+        if integral is None:
+            print("retrieve_all_information: integral is None.")
+        if pi is None:
+            print("retrieve_all_information: pi is None.")
+        if t_insp is None:
+            print("retrieve_all_information: t_insp is None.")
+        if RR is None:
+            print("retrieve_all_information: RR is None.")
+        if self.model.volume is None:
+            print("retrieve_all_information: self.model.volume is None.")
+
+
         matricione_provvisorio = np.column_stack((picco, integral, pi, t_insp, RR,
                                                   self.model.volume[:, 1],
                                                   np.ones(np.shape(picco), dtype=np.float64)))
         self.model.matricione = np.insert(matricione_provvisorio.T, 0, 1, axis=0)
+        if self.model.matricione is None:
+            print("retrieve_all_information: matricione is None.")
 
         self.model.n = 0
 
@@ -252,6 +267,7 @@ class Controller:
         """Do the Automatic Classification."""
         # save the csv.
         self.automatic_processer = Processer(self.model)
+        self.automatic_processer.start()
 
         self.init_learning_directory()
 

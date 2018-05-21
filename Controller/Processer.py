@@ -12,8 +12,8 @@ class Processer:
 
     def __init__(self, model):
         self.model = model
-        t = Thread(target=self.start(), name='t-processer')
-        t.start()
+        #t = Thread(target=self.start(), name='t-processer')
+        #t.start()
 
     def start(self):
         self.retrieve_features()

@@ -86,9 +86,9 @@ class SelectionFrame(Toplevel):
         else:
             if self.controller.check_valid_wd() and self.controller.check_valid_ld():
                 # call the controller. It will have different behaviour with different self.model.manual's value.
-                if self.controller.choose_work():
-                    self.controller.start()
-                    self.destroy()
+                self.controller.choose_work()
+                self.controller.start()
+                self.destroy()
 
     def back_callback(self):
         """Callback ofthe previous button."""
