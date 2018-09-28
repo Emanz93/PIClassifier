@@ -21,6 +21,7 @@ Open a terminal in the main folder and run:
 Where X is the Python3 version installed on your system.
 
 
+## References
 [1] Muttini Stefano, Villani Pier Giorgio, Trimarco Roberta, Bellani Giacomo, Grasselli Giacomo, Patroniti Nicol.
     "Relation between peak and integral of the diaphragm electromyographic activity at different levels of support during weaning from mechanical ventilation: a physiologic study."
     Journal of Critical Care (2014), doi:10.1016/j.jcrc.2014.08.013
