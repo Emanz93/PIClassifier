@@ -22,9 +22,9 @@ class SelectionFrame(Toplevel):
         Toplevel.__init__(self, bg=BACKGROUND_COLOR, **other)
         self.title = TITLE_INSERT
         self.protocol('WM_DELETE_WINDOW', sys.exit)
-        if platform.system() != 'Darwin':
-            img = PhotoImage(file=getcwd() + '/res/img/breath.png')
-            self.tk.call('wm', 'iconphoto', self._w, img)
+        #if platform.system() != 'Darwin':
+        #    img = PhotoImage(file=getcwd() + '/res/img/breath.png')
+        #    self.tk.call('wm', 'iconphoto', self._w, img)
 
         # input frame
         self.create_input_frame()

@@ -16,8 +16,8 @@ class ResultFrame(Toplevel):
         Toplevel.__init__(self, bg=BACKGROUND_COLOR, **options)
         self.title = TITLE_CLASSIFICATION
         self.protocol('WM_DELETE_WINDOW', self.quit)
-        img = PhotoImage(file=getcwd() + '/res/img/breath.png')
-        self.tk.call('wm', 'iconphoto', self._w, img)
+        #img = PhotoImage(file=getcwd() + '/res/img/breath.png')
+        #self.tk.call('wm', 'iconphoto', self._w, img)
 
         # model
         self.model = model
