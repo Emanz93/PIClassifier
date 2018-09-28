@@ -5,6 +5,21 @@ The problem to solve was a ternary classi cation -- Yes, No, Maybe -- of signals
 
 A [report](https://github.com/Emanz93/PIClassifier/blob/master/Technical_Report.pdf)  has been wrote to explain the inner algorithm and implementation choices.
 
+## Requirements
+* Python 3
+    * Python Tkinter Library
+    * Python Numpy Library
+    * Python Matplotlib Library
+* R
+    * RPart Library
+
+## Usage
+Open a terminal in the main folder and run:
+
+    python3.X PIClassifier.py
+
+Where X is the Python3 version installed on your system.
+
 
 [1] Muttini Stefano, Villani Pier Giorgio, Trimarco Roberta, Bellani Giacomo, Grasselli Giacomo, Patroniti Nicol.
     "Relation between peak and integral of the diaphragm electromyographic activity at different levels of support during weaning from mechanical ventilation: a physiologic study."
