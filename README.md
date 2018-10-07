@@ -8,8 +8,8 @@ A [report](https://github.com/Emanz93/PIClassifier/blob/master/Technical_Report.
 ## Requirements
 * Python 3
     * Python Tkinter Library
-    * Python Numpy Library
-    * Python Matplotlib Library
+    * Python Numpy Library (>= 1.15.2)
+    * Python Matplotlib Library (>= 3.0.0)
 * R
     * RPart Library
 
