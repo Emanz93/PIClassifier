@@ -73,7 +73,7 @@ class ClassificationFrame(Toplevel):
         """Create the top left panel containing the curve graphic."""
         self.draw_curve()
         self.canvas = FigureCanvasTkAgg(self.figure, master=self.parent1)
-        self.canvas.show()
+        self.canvas.draw()
         self.canvas.get_tk_widget().pack(side=LEFT)
 
     def create_top_right_frame(self):
