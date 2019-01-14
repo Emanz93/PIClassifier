@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
-import platform
+# import platform
 
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
@@ -13,6 +13,7 @@ from GUI.Field import Field
 from tkinter.messagebox import askokcancel, showwarning
 from GUI.ResultFrame import ResultFrame
 from os import getcwd
+from sys import platform
 
 
 
@@ -24,7 +25,7 @@ class ClassificationFrame(Toplevel):
         Toplevel.__init__(self, bg=BACKGROUND_COLOR, **options)
         self.title = TITLE_CLASSIFICATION
         self.protocol('WM_DELETE_WINDOW', self.quit)
-        if platform.system() != 'Darwin':
+        if platform != 'darwin':
             img = PhotoImage(file=getcwd() + '/res/img/breath.png')
             self.tk.call('wm', 'iconphoto', self._w, img)
 
@@ -51,6 +52,19 @@ class ClassificationFrame(Toplevel):
 
         # bind keyboard event
         self.binder()
+
+        if platform == "darwin": # MAC OS
+            self.f2.config(highlightbackground=BACKGROUND_COLOR)
+            self.f3.config(highlightbackground=BACKGROUND_COLOR)
+            self.f4.config(highlightbackground=BACKGROUND_COLOR)
+            self.f4_left.config(highlightbackground=BACKGROUND_COLOR)
+            self.f4_right.config(highlightbackground=BACKGROUND_COLOR)
+            self.ok_button.config(highlightbackground=LIGHT_GREEN)
+            self.anom_button.config(highlightbackground=LIGHT_RED)
+            self.finish_button.config(highlightbackground=LIGHT_VIOLET)
+            self.next_button.config(highlightbackground=LIGHT_BLUE)
+            self.prev_button.config(highlightbackground=LIGHT_BLUE)
+            self.reset_button.config(highlightbackground=LIGHT_BLUE)
 
     def quit(self):
         """Override of the method quit. Ask before quitting all the program during the
@@ -115,7 +129,7 @@ class ClassificationFrame(Toplevel):
         self.ok_button.pack(side=LEFT)
 
         # Anomaly Button
-        self.anom_button = Button(self.f4_left, width=7, text='Anomalia', fg='black', bg=LIGHT_RED,
+        self.anom_button = Button(self.f4_left, text=' Anomalia ', fg='black', bg=LIGHT_RED,
                                   activebackground=ACTIVE_LIGHT_RED,
                                   font=BUTTON_BIG_FONT, relief=RAISED, bd=2,
                                   command=self.anomaly_callback)

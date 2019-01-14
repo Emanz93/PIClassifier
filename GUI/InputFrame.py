@@ -5,6 +5,7 @@ from tkinter.filedialog import askdirectory
 from GUI.Field import Field
 from Model.Constants import *
 
+from sys import platform
 
 class InputFrame(Frame):
     __doc__ = """Manual Input Frame. Contain a Label that is the title of the section, a Field and a
@@ -42,6 +43,10 @@ class InputFrame(Frame):
         self.selectButton.pack(side=RIGHT)
 
         self.inputFrame.pack(side=BOTTOM, expand=False)
+
+        if platform == "darwin": # MAC OS
+            self.f.config(highlightbackground=BACKGROUND_COLOR)
+            self.inputFrame.config(highlightbackground=BACKGROUND_COLOR)
 
     def ask_working_directory_callback(self):
         """Callback of the button. Ask a directory via file dialog. Store the path in the model and

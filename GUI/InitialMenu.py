@@ -7,6 +7,7 @@ from GUI.Quitter import Quitter
 from GUI.SelectionFrame import SelectionFrame
 from Model.Constants import *
 from Model.Model import Model
+from sys import platform
 
 
 class InitialMenu(Frame):
@@ -37,6 +38,11 @@ class InitialMenu(Frame):
 
         # Button Quit
         self.create_quit_button()
+
+        if platform == "darwin": # MAC OS
+            self.l.config(highlightbackground=BACKGROUND_COLOR)
+            self.b_manual.config(highlightbackground=LIGHT_GREEN, bg=BACKGROUND_COLOR, activebackground=BACKGROUND_COLOR)
+            self.b_automatic.config(highlightbackground=LIGHT_BLUE, bg=BACKGROUND_COLOR)
 
     def restart(self):
         del self.model
