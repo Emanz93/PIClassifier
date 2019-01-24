@@ -435,9 +435,9 @@ class Controller:
                     self.model.servo_curve_paths.append(self.model.settings['working_directory_path'] + file)
                 elif VOLUME_REGEX in file and file.endswith(OLD_INPUT_FILE_EXTENSION):
                     self.model.trend_tidal_volume_paths.append(self.model.settings['working_directory_path'] + file)
-                elif CURVES_REGEX in file and file.endswith(NEW_INPUT_FILE_EXTENSION):
+                elif file.startswith(CURVES_REGEX) and file.endswith(NEW_INPUT_FILE_EXTENSION):
                     self.model.curves_paths.append(self.model.settings['working_directory_path'] + file)
-                elif BREATH_REGEX in file and file.endswith(NEW_INPUT_FILE_EXTENSION):
+                elif file.startswith(BREATH_REGEX) and file.endswith(NEW_INPUT_FILE_EXTENSION):
                     self.model.breath_paths.append(self.model.settings['working_directory_path'] + file)
 
     def check_valid_wd(self):
