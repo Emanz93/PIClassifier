@@ -5,6 +5,16 @@
 # MANUAL = 'manual'
 # AUTOMATIC = 'automatic'
 
+# File filtering informations
+OLD_INPUT_FILE_EXTENSION = '.nta' # Servo I - old input file format extension
+NEW_INPUT_FILE_EXTENSION = '.sta' # Servo U - old input file format extension
+RR_REGEX = 'TrendRRInspTime'
+SERVO_REGEX = 'ServoCurveData'
+VOLUME_REGEX = 'TrendTidalVolume'
+BREATH_REGEX = 'Breath_'
+CURVES_REGEX = 'Curves_'
+
+
 # Dimension
 FRAME_SELECT_WIDTH = 350
 FRAME_SELECT_HEIGHT = 100

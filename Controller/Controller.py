@@ -6,8 +6,8 @@ from os.path import isfile, isdir, join
 from shutil import copy, copy2
 from subprocess import check_output
 from threading import Thread
-from tkinter.messagebox import askyesno
-from tkinter.messagebox import showerror
+from tkinter.messagebox import askyesno, showerror
+from operator import xor
 
 import numpy as np
 
@@ -50,7 +50,7 @@ class Controller:
                     self.load_new_work()
             else:
                 self.load_new_work()
-        else:
+        else: # self.model.manual = False -> AUTOMATIC CLASSIFICATION
             if MATRICIONE_CSV_NAME in listdir(self.model.settings['working_directory_path']) \
                     and CURVE_EADI_CSV_NAME in listdir(self.model.settings['working_directory_path']):
                 if not askyesno(title=POPUP_C_TITLE, message=POPUP_C_MESSAGE_AUTOM):
@@ -419,18 +419,33 @@ class Controller:
             print('file_path={}'.format(file_path))
             print(e)
 
+    def _retrieve_input_files_paths(self):
+        """ Get the list of all files paths. Look for:
+        - *TrendRRInspTime*.nta
+        - *ServoCurveData*.nta
+        - *TrendTidalVolume*.nta
+        - Curves_*.sta
+        - Breath_*.sta
+        """
+        for file in listdir(self.model.settings['working_directory_path']):
+            if not file.startswith('.'):
+                if RR_REGEX in file and file.endswith(OLD_INPUT_FILE_EXTENSION):
+                    self.model.trend_rr_insp_paths.append(self.model.settings['working_directory_path'] + file)
+                elif SERVO_REGEX in file and file.endswith(OLD_INPUT_FILE_EXTENSION):
+                    self.model.servo_curve_paths.append(self.model.settings['working_directory_path'] + file)
+                elif VOLUME_REGEX in file and file.endswith(OLD_INPUT_FILE_EXTENSION):
+                    self.model.trend_tidal_volume_paths.append(self.model.settings['working_directory_path'] + file)
+                elif CURVES_REGEX in file and file.endswith(NEW_INPUT_FILE_EXTENSION):
+                    self.model.curves_paths.append(self.model.settings['working_directory_path'] + file)
+                elif BREATH_REGEX in file and file.endswith(NEW_INPUT_FILE_EXTENSION):
+                    self.model.breath_paths.append(self.model.settings['working_directory_path'] + file)
+
     def check_valid_wd(self):
         """Retrieve all the path for the servo, volume and rr files, given the working directory
         path."""
         if isdir(self.model.settings['working_directory_path']):
-            for file in listdir(self.model.settings['working_directory_path']):
-                if not file.startswith('.') and file.endswith('.nta'):
-                    if 'TrendRRInspTime' in file:
-                        self.model.trend_rr_insp_paths.append(self.model.settings['working_directory_path'] + file)
-                    elif 'ServoCurveData' in file:
-                        self.model.servo_curve_paths.append(self.model.settings['working_directory_path'] + file)
-                    elif 'TrendTidalVolume' in file:
-                        self.model.trend_tidal_volume_paths.append(self.model.settings['working_directory_path'] + file)
+
+            self._retrieve_input_files_paths()
 
             if len(self.model.trend_rr_insp_paths) == 0 or \
                             len(self.model.servo_curve_paths) == 0 or \

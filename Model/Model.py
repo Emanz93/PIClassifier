@@ -19,12 +19,13 @@ class Model:
         # inside there are sensibility, working_directory and learning_directory.
         self.settings = None
 
-        # servo curve path
-        self.servo_curve_paths = []
-        # trend tidal path
-        self.trend_tidal_volume_paths = []
-        # trend rr insp path
-        self.trend_rr_insp_paths = []
+        # Input files paths
+        self.servo_curve_paths = [] # servo curve paths (only for Servo I)
+        self.trend_tidal_volume_paths = [] # trend tidal paths (only for Servo I)
+        self.trend_rr_insp_paths = [] # trend rr insp paths (only for Servo I)
+        self.curves_paths = [] # curves paths (only for Servo U)
+        self.breath_paths = [] # breath paths (only for Servo U)
+
 
         self.csv_output_path = None
 
