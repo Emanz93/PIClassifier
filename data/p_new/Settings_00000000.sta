@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEVICE INFO:
+%% Device Type: SERVO-U0
+%% System Version: 1.0
+%% Sampling Time: 010
+%% Device System SW version: SERVO-U,2.2.0.55516
+%% Application Name: SERVO Tracker U/n/air
+%% Build Info: Build: Sep 26 2016 / 16:27:37
+%% Measurement at Y-piece enabled: 
+%% PC Time: 20181205174709
+%% Device Time: 20181205182644
+%% Servo Serial Number: 26155
+%% Protocol Version:  2
+%% Log start: 2018-12-05:17:54:19.13
+%% Log stop:  2018-12-05:17:54:51.539
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ch_400 (b/min)     : RR
+% Ch_401 (-)         : Leakage comp. status
+% Ch_402 (%)         : T pause(%)
+% Ch_403 (b/min)     : SIMV rate
+% Ch_404 (%)         : Tinsp. rise(%)
+% Ch_405 (l/min)     : Minute volume
+% Ch_406 (cmH20)     : PC above PEEP
+% Ch_407 (cmH20)     : PS above PEEP
+% Ch_408 (cmH20)     : PEEP
+% Ch_409 (-)         : Patient range
+% Ch_410 (-)         : Vent. mode
+% Ch_412 (cmH20)     : CPAP
+% Ch_414 (%)         : O2 conc.
+% Ch_415 (cmH20)     : Trigger sensitivity (pressure)
+% Ch_416 (l/min)     : Trigger sensitivity (flow)
+% Ch_417 (-)         : Language
+% Ch_418 (-)         : CO2 unit
+% Ch_419 ()          : I:E
+% Ch_420 (ml)        : Tidal volume
+% Ch_421 (b/min)     : Backup RR
+% Ch_422 (s)         : Backup Ti (s)
+% Ch_423 (-)         : NIV Program Status
+% Ch_424 (cmH20)     : Phigh
+% Ch_425 (s)         : Thigh
+% Ch_426 (s)         : TPPEP
+% Ch_427 (cmH20)     : PS above Phigh
+% Ch_428 (cmH20)     : PS above PEEP
+% Ch_429 (s)         : Ti (s)
+% Ch_430 (s)         : Tpause (s)
+% Ch_431 (s)         : Tisp. rise (s)
+% Ch_432 (s)         : Breath cycle T
+% Ch_433 (cmH20)     : backup PC above PEEP
+% Ch_434 (l/s)       : Flow
+% Ch_435 (-)         : Suct. Sup. Status
+% Ch_436 (%)         : End inspiration
+% Ch_437 (-)         : Circ. compl. comp. stat
+% Ch_438 (s)         : Max. apnea time
+% Ch_439 (-)         : Y-piece Meas. status
+% Ch_440 (uV)        : Edi trigger
+% Ch_441 (cmH20/uV)  : NAVA level
+% Ch_442 (-)         : Gas type setting
+% Ch_443 (ml)        : Backup tidal volume
+% Ch_444 ()          : Backup I:E
+% Ch_445 (-)         : Leak too high alarm
+% Ch_446 (-)         : Neb mode
+% Ch_447 (min)       : Neb time
+% Ch_448 (-)         : No patient effort
+% Ch_449 (-)         : Backup vent On/Off
+% Ch_450 (-)         : Backup vent. status
+% Ch_451 (kg)        : Pred. Body Weight
+% Ch_452 (-)         : Leakage too high alarm
+% Ch_453 (-)         : Insp. Tidal Vol too high
+% Ch_454 (-)         : Exp. Min. Vol. high
+% Ch_455 (-)         : Exp. Min. Vol low
+% Phase: 16=Insp., 32=Pause, 48=Exp.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Timestamp	     Counter	      Ch_400	      Ch_401	      Ch_402	      Ch_403	      Ch_404	      Ch_405	      Ch_406	      Ch_407	      Ch_408	      Ch_409	      Ch_410	      Ch_412	      Ch_414	      Ch_415	      Ch_416	      Ch_417	      Ch_418	      Ch_419	      Ch_420	      Ch_421	      Ch_422	      Ch_423	      Ch_424	      Ch_425	      Ch_426	      Ch_427	      Ch_428	      Ch_429	      Ch_430	      Ch_431	      Ch_432	      Ch_433	      Ch_434	      Ch_435	      Ch_436	      Ch_437	      Ch_438	      Ch_439	      Ch_440	      Ch_441	      Ch_442	      Ch_443	      Ch_444	      Ch_445	      Ch_446	      Ch_447	      Ch_448	      Ch_449	      Ch_450	      Ch_451	      Ch_452	      Ch_453	      Ch_454	      Ch_455	       Phase
+           0	           0	       32511	           2	       32511	       32511	       32511	       32511	       32511	       32511	         6.5	           1	          19	       32511	        80.0	       32511	        0.40	           5	       32511	       32511	       32511	        39.0	        0.51	           0	       32511	       32511	       32511	       32511	       32511	       32511	       32511	       32511	       32511	        12.0	       32511	           1	       32511	           2	       32511	           1	        0.50	        0.60	           2	       32511	        0.50	       32511	           1	        10.0	           2	           2	           1	       32511	           2	           2	           2	           2	           0
