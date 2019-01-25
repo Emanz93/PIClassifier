@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEVICE INFO:
+%% Device Type: SERVO-U0
+%% System Version: 1.0
+%% Sampling Time: 010
+%% Device System SW version: SERVO-U,2.2.0.55516
+%% Application Name: SERVO Tracker U/n/air
+%% Build Info: Build: Sep 26 2016 / 16:27:37
+%% Measurement at Y-piece enabled: 
+%% PC Time: 20181205174709
+%% Device Time: 20181205182644
+%% Servo Serial Number: 26155
+%% Protocol Version:  2
+%% Log start: 2018-12-05:17:47:27.490
+%% Log stop:  2018-12-05:17:48:01.124
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ch_600 (cmH20)     : Upper Press. lim
+% Ch_601 (%)         : O2 conc. Upper alarm lim
+% Ch_602 (%)         : O2 conc. Lower alarm lim
+% Ch_603 (b/min)     : Respiratory rate Upper alarm lim
+% Ch_604 (b/min)     : Respiratory rate Lower alarm lim
+% Ch_605 (s)         : Apnea time
+% Ch_606 (cmH20)     : PEEP High lim
+% Ch_607 (cmH20)     : PEEP Low lim
+% Ch_608 (cmH20)     : CPAP Upper alarm lim
+% Ch_609 (cmH20)     : CPAP Lower alarm lim
+% Ch_610 (l/min)     : Exp. Min. Vol. Upper alarm lim
+% Ch_611 (l/min)     : Exp. Min. Vol. Lower alarm lim
+% Ch_612 (%)         : EtCO2 conc. Upper alarm lim
+% Ch_613 (%)         : EtCO2 conc. Lower alarm lim
+% Ch_614 (mmHg)      : EtCO2 conc. Upper alarm lim
+% Ch_615 (mmHg)      : EtCO2 conc. Lower alarm lim
+% Ch_616 (kPa)       : EtCO2 conc. Upper alarm lim
+% Ch_617 (kPa)       : EtCO2 conc. Lower alarm lim
+% Ch_618 (s)         : Apnea audio delay
+% Ch_619 (ml)        : VTi Upper alarm limit
+% Phase: 16=Insp., 32=Pause, 48=Exp.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Timestamp	     Counter	      Ch_600	      Ch_601	      Ch_602	      Ch_603	      Ch_604	      Ch_605	      Ch_606	      Ch_607	      Ch_608	      Ch_609	      Ch_610	      Ch_611	      Ch_612	      Ch_613	      Ch_614	      Ch_615	      Ch_616	      Ch_617	      Ch_618	      Ch_619	       Phase
+           0	           0	          40	        85.0	        75.0	        60.0	         8.0	        10.0	        15.0	         2.0	       32511	       32511	        5.00	        0.50	       32511	       32511	       32511	       32511	       32511	       32511	         0.0	       32511	           0

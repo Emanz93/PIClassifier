@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DEVICE INFO:
+%% Device Type: SERVO-U0
+%% System Version: 1.0
+%% Sampling Time: 010
+%% Device System SW version: SERVO-U,2.2.0.55516
+%% Application Name: SERVO Tracker U/n/air
+%% Build Info: Build: Sep 26 2016 / 16:27:37
+%% Measurement at Y-piece enabled: 
+%% PC Time: 20181205174709
+%% Device Time: 20181205182644
+%% Servo Serial Number: 26155
+%% Protocol Version:  2
+%% Log start: 2018-12-05:17:47:27.490
+%% Log stop:  2018-12-05:17:48:01.124
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ch_800 (-)         : O2 conc. high
+% Ch_801 (-)         : O2 conc. low
+% Ch_802 (-)         : EtCO2 conc. high
+% Ch_803 (-)         : EtCO2 conc. low
+% Ch_804 (-)         : Pressure high
+% Ch_805 (-)         : Apnea
+% Ch_806 (-)         : Gas supply alarm
+% Ch_807 (-)         : Battery alarm
+% Ch_808 (-)         : Fixed value = 7EFF
+% Ch_809 (-)         : Battery operation
+% Ch_810 (-)         : No consistent Pat. effort
+% Ch_811 (-)         : Pressure continously high
+% Ch_812 (-)         : Overrange alarm
+% Ch_813 (-)         : O2 cell/sensor alarm
+% Ch_814 (-)         : Time in waiting pos > 2 min
+% Ch_815 (-)         : No patient effort
+% Ch_816 (-)         : Leakage too high
+% Ch_817 (-)         : Pat. circuit disconnected
+% Ch_818 (-)         : Vol. delivery is restricted
+% Ch_819 (-)         : Respiratory high
+% Ch_820 (-)         : Respiratory  low
+% Ch_821 (-)         : PEEP high
+% Ch_822 (-)         : PEEP low
+% Ch_823 (-)         : CPAP high
+% Ch_824 (-)         : CPAP low
+% Ch_825 (-)         : Inconsistent Edi signal
+% Ch_826 (-)         : Low Edi signal
+% Ch_827 (-)         : No Edi signal detected
+% Ch_828 (-)         : Pat. disconnected > 1 min
+% Ch_829 (-)         : Exp. Min. Vol. high
+% Ch_830 (-)         : Exp. Min. Vol. low
+% Ch_831 (-)         : Exp. Cassette disconnected
+% Ch_832 (-)         : Exp. Cassette replaced
+% Ch_833 (-)         : Edi signal invalid
+% Ch_834 (-)         : Signal interference from ECG
+% Ch_994 (-)         : Internal comm. failure alarm
+% Ch_995 (-)         : Any low prio alarm active
+% Ch_996 (-)         : Any medium prio alarm active
+% Ch_997 (-)         : Any high prio alarm active
+% Ch_998 (-)         : Any technical prio alarm active
+% Ch_999 (-)         : Any alarm active
+% Phase: 16=Insp., 32=Pause, 48=Exp.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Timestamp	     Counter	      Ch_800	      Ch_801	      Ch_802	      Ch_803	      Ch_804	      Ch_805	      Ch_806	      Ch_807	      Ch_808	      Ch_809	      Ch_810	      Ch_811	      Ch_812	      Ch_813	      Ch_814	      Ch_815	      Ch_816	      Ch_817	      Ch_818	      Ch_819	      Ch_820	      Ch_821	      Ch_822	      Ch_823	      Ch_824	      Ch_825	      Ch_826	      Ch_827	      Ch_828	      Ch_829	      Ch_830	      Ch_831	      Ch_832	      Ch_833	      Ch_834	      Ch_994	      Ch_995	      Ch_996	      Ch_997	      Ch_998	      Ch_999	       Phase
+           0	           0	           0	           0	       32511	       32511	           0	           0	           0	           0	       32511	           0	           0	           0	           0	           0	       32511	           0	           0	           0	           0	           0	           0	           0	           0	       32511	       32511	       32511	       32511	       32511	           0	           0	           0	           0	           0	           0	           0	           0	           0	           0	           0	           0	           0	          16
