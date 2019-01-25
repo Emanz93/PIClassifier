@@ -7,7 +7,6 @@ from shutil import copy, copy2
 from subprocess import check_output
 from threading import Thread
 from tkinter.messagebox import askyesno, showerror
-from operator import xor
 
 import numpy as np
 
@@ -71,17 +70,28 @@ class Controller:
 
     def load_new_work(self):
         """Start a new work. Load Servo Data, Volume Data and RR Data."""
-        t1 = Thread(target=self.load_servo(), name='t-servo')
-        t1.start()
-        t2 = Thread(target=self.load_volume(), name='t-volume')
-        t2.start()
-        t3 = Thread(target=self.load_rr(), name='t-rr')
-        t3.start()
-        t1.join()
-        t2.join()
-        t3.join()
+        if self.model.is_old_input_format:
+            t1 = Thread(target=self.load_servo(), name='t-servo')
+            t1.start()
+            t2 = Thread(target=self.load_volume(), name='t-volume')
+            t2.start()
+            t3 = Thread(target=self.load_rr(), name='t-rr')
+            t3.start()
+            t1.join()
+            t2.join()
+            t3.join()
+            self.retrieve_all_information()
+        else:
+            t1 = Thread(target=self.load_breath(), name='t-breath')
+            t1.start()
+            t2 = Thread(target=self.load_curves(), name='t-curves')
+            t2.start()
+            t1.join()
+            t2.join()
+            showerror("Error", "The new files are not supported yet.")
+            return
 
-        self.retrieve_all_information()
+        # self.retrieve_all_information()
 
     def load_servo(self):
         """Load the data of the Servo Curve File(s). Append the content of the files in a unique
@@ -118,9 +128,27 @@ class Controller:
                 else:
                     self.model.c = np.concatenate((self.model.c, np.loadtxt(file_path, comments="%", usecols=(3, 4, 6))))
 
+    def load_curves(self):
+        """Load the data of the Servo Curve File(s). Append the content of the files in a unique
+        ndarray, called curves, stored in the model."""
+        for file_path in self.model.curves_paths:
+            if self.model.curves is None:
+                self.model.curves = np.loadtxt(file_path, comments="%", usecols=(2, 3, 5, 6))
+            else:
+                self.model.curves = np.concatenate((self.model.curves, np.loadtxt(file_path, comments="%", usecols=(2, 3, 5, 6))))
+
+    def load_breath(self):
+        """Load the rr data from the Trend RR Files. Append the content of the files in a unique
+        ndarray, called c. It is stored in the model."""
+        for file_path in self.model.breath_paths:
+            if self.model.breath is None:
+                self.model.breath = np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))
+            else:
+                self.model.breath = np.concatenate((self.model.breath, np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))))
+
     def retrieve_all_information(self):
         """Retrieve all information from the input files."""
-        # rows = number of ponts of edi curve
+        # rows = number of points of edi curve
         rows = np.shape(self.model.edi)[0]
         total_number_data = 400
         eadi_provvisorio = np.zeros([total_number_data, self.model.col])
@@ -440,28 +468,53 @@ class Controller:
                 elif file.startswith(BREATH_REGEX) and file.endswith(NEW_INPUT_FILE_EXTENSION):
                     self.model.breath_paths.append(self.model.settings['working_directory_path'] + file)
 
+        # Sort the lists in alphabetical order
+        self.model.trend_rr_insp_paths.sort()
+        self.model.servo_curve_paths.sort()
+        self.model.trend_tidal_volume_paths.sort()
+        self.model.curves_paths.sort()
+        self.model.breath_paths.sort()
+
+
+    def _check_input_paths_consistency(self):
+        are_old_empty = len(self.model.trend_rr_insp_paths) == 0 or len(self.model.servo_curve_paths) == 0 or len(self.model.trend_tidal_volume_paths) == 0
+        are_new_empty = len(self.model.breath_paths) == 0 or len(self.model.curves_paths) == 0
+
+        if are_new_empty and not are_old_empty:
+            # the new input paths are empty, but the old not.
+            # Servo I behaviour (OLD)
+            self.model.is_old_input_format = True
+            return True
+        elif not are_new_empty and are_old_empty:
+            # the new input paths are NOT empty, but the old are empty.
+            # Servo U behaviour (NEW)
+            self.model.is_old_input_format = False
+            return True
+        else:
+            # Reinitialize all model path variables
+            self.model.trend_rr_insp_paths = []
+            self.model.servo_curve_paths = []
+            self.model.trend_tidal_volume_paths = []
+            self.model.breath = []
+            self.model.curves = []
+            showerror(title="Attenzione",
+                      message="Directory di lavoro non valida. Questa deve contenere:\n"
+                              "  - TrendRRInspTime... .nta\n"
+                              "  - ServoCurveData... .nta\n"
+                              "  - TrendTidalVolume... .nta\n\n"
+                              "Prego, selezionare un altra cartella.")
+            return False
+
     def check_valid_wd(self):
         """Retrieve all the path for the servo, volume and rr files, given the working directory
-        path."""
+        path. Specify if the input files are in old or new format setting a variable in the model.
+        Returns:
+            - True : if either the new or the old paths are correct.
+            - False : otherwise.
+        """
         if isdir(self.model.settings['working_directory_path']):
-
             self._retrieve_input_files_paths()
-
-            if len(self.model.trend_rr_insp_paths) == 0 or \
-                            len(self.model.servo_curve_paths) == 0 or \
-                            len(self.model.trend_tidal_volume_paths) == 0:
-                self.model.trend_rr_insp_paths = []
-                self.model.servo_curve_paths = []
-                self.model.trend_tidal_volume_paths = []
-                showerror(title="Attenzione",
-                          message="Directory di lavoro non valida. Questa deve contenere:\n"
-                                  "  - TrendRRInspTime... .nta\n"
-                                  "  - ServoCurveData... .nta\n"
-                                  "  - TrendTidalVolume... .nta\n\n"
-                                  "Prego, selezionare un altra cartella.")
-                return False
-            else:
-                return True
+            return self._check_input_paths_consistency()
         else:
             showerror(title="Attenzione",
                       message="Directory di lavoro non valida. Selezionarne un altra.")

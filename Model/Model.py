@@ -26,13 +26,20 @@ class Model:
         self.curves_paths = [] # curves paths (only for Servo U)
         self.breath_paths = [] # breath paths (only for Servo U)
 
+        # Variable that defines if the input files are old format or new format.
+        self.is_old_input_format = None
 
         self.csv_output_path = None
 
+        # Old data structures
         self.edi = None
-        # inspired volume.
         self.volume = None
         self.c = None
+
+        # New data structures
+        self.curves = None
+        self.breath = None
+
         # data point of the curve
         self.curve_eadi = None
         # final big matrix containing all the information
