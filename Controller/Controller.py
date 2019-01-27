@@ -178,7 +178,7 @@ class Controller:
         self.model.eadi = np.round(eadi_provvisorio / 100, 2)
 
         # compute the picco as max of all eadi points.
-        picco = np.max(self.model.eadi, axis=0)
+        picco = np.max(self.model.eadi, axis=0) # max for each column
 
         # compute the integral as the sum of all point of eadi curve
         integral = np.sum(self.model.eadi, axis=0)
@@ -474,7 +474,6 @@ class Controller:
         self.model.trend_tidal_volume_paths.sort()
         self.model.curves_paths.sort()
         self.model.breath_paths.sort()
-
 
     def _check_input_paths_consistency(self):
         are_old_empty = len(self.model.trend_rr_insp_paths) == 0 or len(self.model.servo_curve_paths) == 0 or len(self.model.trend_tidal_volume_paths) == 0
