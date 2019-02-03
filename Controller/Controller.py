@@ -80,6 +80,9 @@ class Controller:
             t1.join()
             t2.join()
             t3.join()
+
+            self.model.col = np.shape(self.model.volume)[0]
+            self.model.ok_counter = np.shape(self.model.volume)[0]
             self.retrieve_all_information()
         else:
             t1 = Thread(target=self.load_breath(), name='t-breath')
@@ -88,6 +91,8 @@ class Controller:
             t2.start()
             t1.join()
             t2.join()
+            self.model.col = np.shape(self.model.breath)[0]
+            self.model.ok_counter = np.shape(self.model.breath)[0]
             showerror("Error", "The new files are not supported yet.")
             return
 
@@ -113,10 +118,6 @@ class Controller:
                 else:
                     self.model.volume = np.concatenate((self.model.volume, np.round(
                         (np.loadtxt(file_path, comments="%", usecols=(3, 4)) / 10000000), 3)))
-
-        v = np.shape(self.model.volume)
-        self.model.col = v[0]
-        self.model.ok_counter = v[0]
 
     def load_rr(self):
         """Load the rr data from the Trend RR Files. Append the content of the files in a unique
