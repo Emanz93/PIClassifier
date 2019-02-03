@@ -80,10 +80,6 @@ class Controller:
             t1.join()
             t2.join()
             t3.join()
-
-            self.model.col = np.shape(self.model.volume)[0]
-            self.model.ok_counter = np.shape(self.model.volume)[0]
-            self.retrieve_all_information()
         else:
             t1 = Thread(target=self.load_breath(), name='t-breath')
             t1.start()
@@ -91,12 +87,10 @@ class Controller:
             t2.start()
             t1.join()
             t2.join()
-            self.model.col = np.shape(self.model.breath)[0]
-            self.model.ok_counter = np.shape(self.model.breath)[0]
-            showerror("Error", "The new files are not supported yet.")
-            return
-
-        # self.retrieve_all_information()
+            self.adapt_format()
+        self.model.col = np.shape(self.model.volume)[0]
+        self.model.ok_counter = np.shape(self.model.volume)[0]
+        self.retrieve_all_information()
 
     def load_servo(self):
         """Load the data of the Servo Curve File(s). Append the content of the files in a unique
@@ -146,6 +140,7 @@ class Controller:
                 self.model.breath = np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))
             else:
                 self.model.breath = np.concatenate((self.model.breath, np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))))
+        self.model.breath[:, 2] = self.model.breath[:, 2] * 100000
 
     def retrieve_all_information(self):
         """Retrieve all information from the input files."""
@@ -175,7 +170,7 @@ class Controller:
                 incr = 1
                 riga = 1
 
-        # Normalization of eadi.
+        # Normalization of eadi. Transform from 0.001 mV in 1.0 mV.
         self.model.eadi = np.round(eadi_provvisorio / 100, 2)
 
         # compute the picco as max of all eadi points.
@@ -224,6 +219,35 @@ class Controller:
             print("retrieve_all_information: matricione is None.")
 
         self.model.n = 0
+
+    def adapt_format(self):
+        """Adapt the new format to the old one."""
+        tmp_edi = []
+        line = [0] * 4
+        for i in range(np.shape(self.model.curves)[0]):
+            if self.model.curves[i, 3] == 32:
+                continue
+            else:
+                if self.model.curves[i, 3] == 16:
+                    line[0] = 1
+                else: # self.model.curves[i, 3] == 48:
+                    line[0] = 0
+                line[1] = self.model.curves[i, 1] * 100
+                line[2] = self.model.curves[i, 0] * 1000
+                line[3] = self.model.curves[i, 2] * 100
+                tmp_edi.append(line)
+        self.model.edi = np.array(tmp_edi)
+
+        self.model.volume = np.zeros((np.shape(self.model.breath)[0], 2))
+        self.model.c = np.zeros((np.shape(self.model.breath)[0], 3))
+        for i in range(np.shape(self.model.breath)[0]):
+            self.model.volume[i, 0] = self.model.breath[i, 0]
+            self.model.volume[i, 1] = self.model.breath[i, 2] * 10000
+            self.model.c[i, 0] = self.model.breath[i, 0]
+            self.model.c[i, 1] = self.model.breath[i, 1]
+
+        del self.model.curves
+        del self.model.breath
 
     def save_csv(self):
         """Wrapper which saves all the output file. They will be stored in the working directory."""
