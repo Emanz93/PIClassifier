@@ -140,7 +140,7 @@ class Controller:
                 self.model.breath = np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))
             else:
                 self.model.breath = np.concatenate((self.model.breath, np.loadtxt(file_path, comments="%", usecols=(1, 2, 3))))
-        self.model.breath[:, 2] = self.model.breath[:, 2] * 100000
+        #self.model.breath[:, 2] = self.model.breath[:, 2] * 100000
 
     def retrieve_all_information(self):
         """Retrieve all information from the input files."""
@@ -242,7 +242,7 @@ class Controller:
         self.model.c = np.zeros((np.shape(self.model.breath)[0], 3))
         for i in range(np.shape(self.model.breath)[0]):
             self.model.volume[i, 0] = self.model.breath[i, 0]
-            self.model.volume[i, 1] = self.model.breath[i, 2] * 10000
+            self.model.volume[i, 1] = self.model.breath[i, 2] / 100 # * 10000
             self.model.c[i, 0] = self.model.breath[i, 0]
             self.model.c[i, 1] = self.model.breath[i, 1]
 
