@@ -8,6 +8,8 @@ from GUI.Field import *
 from GUI.Quitter import Quitter
 from Model.Constants import *
 
+from sys import platform
+
 
 class ResultFrame(Toplevel):
     __doc__ = """GUI for the Manual Classification phase."""
@@ -30,9 +32,28 @@ class ResultFrame(Toplevel):
         if self.model.manual is False:  # Automatic Case
             self.create_top_central_panel()
             self.create_top_right_panel()
+
+            if platform == "darwin": #MAC OS
+                self.central_panel.config(highlightbackground=BACKGROUND_COLOR)
+                self.top_right_frame.config(highlightbackground=BACKGROUND_COLOR)
+                self.ck_anomaly.config(highlightbackground=BACKGROUND_COLOR)
+                self.ck_ok.config(highlightbackground=BACKGROUND_COLOR)
+                self.ck_dubious.config(highlightbackground=BACKGROUND_COLOR)
+                self.set_button.config(highlightbackground=LIGHT_BLUE)
+
         self.create_bottom_panel()
 
         self.controller.save_json_settings()
+
+        if platform == "darwin": # MAC OS
+            self.parent1.config(highlightbackground=BACKGROUND_COLOR)
+            self.parent2.config(highlightbackground=BACKGROUND_COLOR)
+            self.top_left_frame.config(highlightbackground=BACKGROUND_COLOR)
+            self.bottom_frame.config(highlightbackground=BACKGROUND_COLOR)
+            self.top_bottom_frame.config(highlightbackground=BACKGROUND_COLOR)
+            self.dataset_button.config(highlightbackground=LIGHT_VIOLET)
+            self.bottom_bottom_frame.config(highlightbackground=BACKGROUND_COLOR)
+            self.menu_button.config(highlightbackground=LIGHT_GREEN)
 
     def create_parents_panels(self):
         """Create two parents panel. Parent1 is the main top frame. Parent2 is the bottom frame."""
