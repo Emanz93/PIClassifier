@@ -8,7 +8,7 @@ from Model.Constants import *
 
 
 class Processer:
-    __doc__ = """Class responsable of the creation of the final dataset."""
+    __doc__ = """Class responsible of the creation of the final dataset."""
 
     def __init__(self, model):
         self.model = model
