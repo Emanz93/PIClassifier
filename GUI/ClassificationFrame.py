@@ -171,7 +171,7 @@ class ClassificationFrame(Toplevel):
 
     def init_values_frame(self):
         """Init the values in the top left frame."""
-        self.field_tv = Field(self.f2, label='TV', entry=str(self.model.volume[self.model.n, 1]),
+        self.field_tv = Field(self.f2, label='TV', entry=str(round(self.model.volume[self.model.n, 1], 4)),
                               pady=8)
         self.field_picco = Field(self.f2, label='Picco',
                                  entry=str(self.model.matricione[1, self.model.n]), pady=8)
@@ -191,7 +191,7 @@ class ClassificationFrame(Toplevel):
 
     def update_fields(self):
         """Update the content of all fields."""
-        self.field_tv.set_variable(str(self.model.volume[self.model.n, 1]))
+        self.field_tv.set_variable(str(round(self.model.volume[self.model.n, 1], 4)))
         self.field_picco.set_variable(str(self.model.matricione[1, self.model.n]))
         self.field_integrale.set_variable(str(self.model.matricione[2, self.model.n]))
         self.field_pi.set_variable(str(self.model.matricione[3, self.model.n]))
