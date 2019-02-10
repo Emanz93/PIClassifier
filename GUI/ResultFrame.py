@@ -171,7 +171,8 @@ class ResultFrame(Toplevel):
     def dataset_callback(self):
         """Callback for Crea Dataset button. Copy the new dataset in csv format to RScript/learning_file and in the
         learning files."""
-        Processer(self.model)
+        p = Processer(self.model)
+        p.start()
         if self.model.dubious_counter == 0:
             if askyesno(ASK_DATASET_TITLE, ASK_DATASET_DESCR):
                 if self.model.manual:
