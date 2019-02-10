@@ -41,6 +41,7 @@ class Controller:
     def choose_work(self):
         """Choose the loading method for retrieve all information."""
         if self.model.manual:
+            # If there is some work already done, ask for permission.
             if MATRICIONE_CSV_NAME in listdir(self.model.settings['working_directory_path']) \
                     and CURVE_EADI_CSV_NAME in listdir(self.model.settings['working_directory_path']):
                 if askyesno(title=POPUP_C_TITLE, message=POPUP_C_MESSAGE):
@@ -50,11 +51,14 @@ class Controller:
             else:
                 self.load_new_work()
         else: # self.model.manual = False -> AUTOMATIC CLASSIFICATION
+            # If there is some work already done, ask for permission.
             if MATRICIONE_CSV_NAME in listdir(self.model.settings['working_directory_path']) \
                     and CURVE_EADI_CSV_NAME in listdir(self.model.settings['working_directory_path']):
                 if not askyesno(title=POPUP_C_TITLE, message=POPUP_C_MESSAGE_AUTOM):
                     return False
-                self.load_new_work()
+
+            # start in any case the new work.
+            self.load_new_work()
 
     def load_previous_work(self):
         """Restart a previous work."""
