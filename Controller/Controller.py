@@ -58,15 +58,20 @@ class Controller:
 
     def load_previous_work(self):
         """Restart a previous work."""
-        t1 = Thread(target=self.load_matricione, name='t-loadmatr')
+        t1 = Thread(target=self.load_matricione(), name='t-loadmatr')
         t1.start()
-        t2 = Thread(target=self.load_servo_curve, name='t-loadservocurve')
+        t2 = Thread(target=self.load_servo_curve(), name='t-loadservocurve')
         t2.start()
         t3 = Thread(target=self.load_volume(), name='t-volume')
         t3.start()
+        t4 = Thread(target=self.load_breath(), name='t-volume')
+        t4.start()
         t1.join()
         t2.join()
         t3.join()
+        self.model.col = np.shape(self.model.matricione)[0]
+        if self.model.volume is None:
+            self._adapt_breath()
 
     def load_new_work(self):
         """Start a new work. Load Servo Data, Volume Data and RR Data."""
@@ -221,6 +226,16 @@ class Controller:
 
     def adapt_format(self):
         """Adapt the new format to the old one."""
+        self._adapt_curves()
+        self._adapt_breath()
+
+    def _adapt_curves(self):
+        """Adapt the curves to the edi format.
+        - 0 : change from 16 to 1 and from 32 to 0.
+        - multiply the pressure for 100 (0.01 cmH2O)
+        - multiply the flow for 1000 (0.001 l/s)
+        - mltiply the edi for 100 (0.01 muVolt)
+        """
         tmp_edi = []
         for i in range(np.shape(self.model.curves)[0]):
             if self.model.curves[i, 3] == 32:
@@ -231,18 +246,19 @@ class Controller:
                                 round(self.model.curves[i, 0] * 1000, 2),
                                 round(self.model.curves[i, 2] * 100, 2)])
 
-        self.model.edi = np.array(tmp_edi)
+        self.model.edi = np.array(tmp_edi) # save the array into the numpy edi.
+        # del self.model.curves
 
+    def _adapt_breath(self):
+        """Adapt the breath data in volume and c format."""
         self.model.volume = np.zeros((np.shape(self.model.breath)[0], 2))
         self.model.c = np.zeros((np.shape(self.model.breath)[0], 3))
         for i in range(np.shape(self.model.breath)[0]):
-            self.model.volume[i, 0] = self.model.breath[i, 0]
-            self.model.volume[i, 1] = self.model.breath[i, 2] / 100 # * 10000
-            self.model.c[i, 0] = self.model.breath[i, 0]
-            self.model.c[i, 1] = self.model.breath[i, 1]
-
-        del self.model.curves
-        del self.model.breath
+            self.model.volume[i, 0] = self.model.breath[i, 0] # counter
+            self.model.volume[i, 1] = self.model.breath[i, 2] / 100  # * 10000 The trend volume is divided only for 100
+            self.model.c[i, 0] = self.model.breath[i, 0] # counter
+            self.model.c[i, 1] = self.model.breath[i, 1] # respiration rate
+        # del self.model.breath # delete the pointer
 
     def save_csv(self):
         """Wrapper which saves all the output file. They will be stored in the working directory."""
@@ -368,7 +384,7 @@ class Controller:
     def get_next_curve_index(self):
         """Increment self.model.n to the next curve."""
         if self.model.manual is True:  # Manual Case
-            self.model.n += 1
+            self.model.n = self.model.n + 1
             if self.model.n > self.model.col - 1:
                 self.model.n = 0
         else:  # Automatic Case
