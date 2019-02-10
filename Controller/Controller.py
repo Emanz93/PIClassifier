@@ -210,9 +210,8 @@ class Controller:
         if self.model.volume is None:
             print("retrieve_all_information: self.model.volume is None.")
 
-
         matricione_provvisorio = np.column_stack((picco, integral, pi, t_insp, RR,
-                                                  self.model.volume[:, 1],
+                                                  np.round(self.model.volume[:, 1], 4),
                                                   np.ones(np.shape(picco), dtype=np.float64)))
         self.model.matricione = np.insert(matricione_provvisorio.T, 0, 1, axis=0)
         if self.model.matricione is None:
@@ -223,19 +222,15 @@ class Controller:
     def adapt_format(self):
         """Adapt the new format to the old one."""
         tmp_edi = []
-        line = [0] * 4
         for i in range(np.shape(self.model.curves)[0]):
             if self.model.curves[i, 3] == 32:
                 continue
             else:
-                if self.model.curves[i, 3] == 16:
-                    line[0] = 1
-                else: # self.model.curves[i, 3] == 48:
-                    line[0] = 0
-                line[1] = self.model.curves[i, 1] * 100
-                line[2] = self.model.curves[i, 0] * 1000
-                line[3] = self.model.curves[i, 2] * 100
-                tmp_edi.append(line)
+                tmp_edi.append([1 if self.model.curves[i, 3] == 16 else 0,
+                                round(self.model.curves[i, 1] * 100, 2),
+                                round(self.model.curves[i, 0] * 1000, 2),
+                                round(self.model.curves[i, 2] * 100, 2)])
+
         self.model.edi = np.array(tmp_edi)
 
         self.model.volume = np.zeros((np.shape(self.model.breath)[0], 2))
